@@ -41,12 +41,12 @@ shuffle=True # Shuffles data before splitting
 preprocessor = ColumnTransformer(
     transformers=[
         ('num', Pipeline([
-            ('imputer', SimpleImputer(strategy='median')),
+            ('imputer', SimpleImputer(strategy='median')),    #Replacing numerical missing values by the median of the values of that column
             ('scaler', StandardScaler())
         ]), num_cols),
 
         ('cat', Pipeline([
-            ('imputer', SimpleImputer(strategy='most_frequent')),
+            ('imputer', SimpleImputer(strategy='most_frequent')),   #Replacing categorical missing values by the most frquent value of that column
             ('encoder', OneHotEncoder(handle_unknown='ignore'))
         ]), cat_cols)
     ]
@@ -83,4 +83,5 @@ print(table)
 # When k is very large, the model becomes too "lazy" and ignores local patterns. By looking at too many neighbors,
 # the model washes out the distinct boundaries between classes --> it fails to capture the actual relationship
 # between features and classes and will most likely always predict the class that represents the majority of the data points.
+
 
