@@ -16,11 +16,12 @@ shuffle=True # Shuffles data before splitting
 
 # Training and testing a model on the same dataset is not a good practice because the objective of testing
 # is to estimate how well the model will perform predictions on data that it has not seen.
-# If the model is trained on the same data it has already seen, it will memorize the training data and fail
+# If the model is tested on the same data it has already seen, it will memorize the training data and fail
 # to understand its structure. This can lead to overfitting, where the model learns the noise and details
 # in the training data, negatively impacting its performance on new data.
 
 
 # A testing set is used to evaluate the performance of a model on unseen data. It used to determine how accurate and
 # precise a model is in general as well as ensuring that the model isn't overfitting to the training data.
+
 
