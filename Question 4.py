@@ -45,12 +45,12 @@ shuffle=True # Shuffles data before splitting
 preprocessor = ColumnTransformer(
     transformers=[
         ('num', Pipeline([
-            ('imputer', SimpleImputer(strategy='median')),
+            ('imputer', SimpleImputer(strategy='median')),    #Replacing numerical missing values by the median of the values of that column
             ('scaler', StandardScaler())
         ]), num_cols),
 
         ('cat', Pipeline([
-            ('imputer', SimpleImputer(strategy='most_frequent')),
+            ('imputer', SimpleImputer(strategy='most_frequent')),     #Replacing categorical missing values by the most frequent value in that column 
             ('encoder', OneHotEncoder(handle_unknown='ignore'))
         ]), cat_cols)
     ]
@@ -98,5 +98,6 @@ print("F1_score:", f1)
 # If missing a kidney disease case is very serious, the most important metric is the Recall as it
 # measures TP/(TP + FN) because in that case we want the FN be as close to 0 as possible for very
 # few sick patient to be missed.
+
 
 
